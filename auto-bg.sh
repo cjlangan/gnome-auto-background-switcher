@@ -47,8 +47,9 @@ do
             break
         else
             # if fail, remove that URL from the list and try again
-            echo "Failed to download image from $bg_url. Trying another URL."
-            sed -i '1d' "$dir".config/urls.txt
+            echo "Failed to download image from $bg_url. Trying another URL and removing failed one."
+            line_number=$(grep -nF "$bg_url" "$dir.config/urls.txt" | cut -d: -f1)
+            sed -i "${line_number}d" "$dir.config/urls.txt"
         fi
     done
 
