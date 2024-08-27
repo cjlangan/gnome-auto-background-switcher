@@ -1,6 +1,6 @@
 # GNOME Auto Background Switcher
 
-## A script to automically cycle your desktop background to different images all centered around a specified them
+## A script to automically cycle your desktop background to different images all centered around a specified theme
 
 ### Dependencies
 - curl
