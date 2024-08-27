@@ -9,6 +9,7 @@
 - gsettings, should have if you are using gnome.
 
 ## Use
+Simply download the `auto-bg.sh` file and run:
 ```bash
 ./auto-bg.sh
 ```
