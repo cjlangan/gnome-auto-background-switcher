@@ -1,5 +1,7 @@
 read -p "What Background type to cycle through (no spaces)? " user_input
 search=$user_input
+read -p "How often should your background cycle? " user_input
+cycle_time=$user_input
 
 dir="/home/$USER/Pictures/auto-backgrounds/"
 mkdir -p "$dir" && mkdir -p "$dir".config
@@ -11,6 +13,8 @@ curl https://yandex.com/images/search?text=${search}%20wallpaper -s -o ${dir}sit
 if [ -z "$(sed -n '5p' ${dir}site.html)" ]; then
     echo "Failed to download site HTML. Exiting."
     exit 1
+else
+    echo "Downloaded site HTML."
 fi
 
 grep -Eo "(http|https)://[a-zA-Z0-9./?=_-]*\.(jpg|jpeg|png)" ${dir}site.html | sort -u > ${dir}.config/urls.txt
@@ -37,5 +41,5 @@ do
     gsettings set org.gnome.desktop.background picture-uri-dark "file://${dir}${img}"
     echo "Set background image to ${dir}${img}"
 
-    sleep 5
+    sleep $cycle_time
 done
