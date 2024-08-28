@@ -16,6 +16,7 @@
 ## Use
 Simply download the `auto-bg.sh` file and run:
 ```bash
+sudo chmod +x auto-bg.sh
 ./auto-bg.sh
 ```
 
