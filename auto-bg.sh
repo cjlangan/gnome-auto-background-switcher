@@ -56,6 +56,7 @@ do
     img=$(ls "$dir")
 
     # Use GNOME settings to set the background image
+    gsettings set org.gnome.desktop.background picture-uri "file://${dir}${img}"
     gsettings set org.gnome.desktop.background picture-uri-dark "file://${dir}${img}"
     echo "Set background image to ${dir}${img}"
 
