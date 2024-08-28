@@ -25,7 +25,7 @@ That's it!
 
 ### How it Works
 - Retrieves HTML data from a Yandex image search
-- Creates the directory structure in ~/Pictures/auto-backgrounds
+- Creates a directory at ~/.auto-bg-switcher/
 - Extracts image URL's from the acquired HTML data
 - Randomly download an image from the URL list, clearing any previous image if they exist
 - Sets the downloaded image to the GNOME background
