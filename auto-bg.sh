@@ -15,7 +15,7 @@ rm -f "$dir"*
 echo "Created Proper folders. See at ${dir}"
 
 # Retrieve HTML data from Yandex Search
-curl https://yandex.com/images/search?text=${search}%20wallpaper -s -o ${dir}site.html
+curl -s "https://yandex.com/images/search?text=${search}%20wallpaper&iorient=horizontal&isize=large" -o "${dir}site.html"
 
 # Check if we successfully retrieved the HTML data
 if [ -z "$(sed -n '2p' ${dir}site.html)" ]; then
