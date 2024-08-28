@@ -8,6 +8,11 @@
 - shuf
 - gsettings, should have if you are using gnome.
 
+## DISCLAIMER
+- if the script fails, it is likely because you have ran it too much in a short period of time
+
+**Solution:** Either wait, or connect to a VPN then run the script
+
 ## Use
 Simply download the `auto-bg.sh` file and run:
 ```bash
