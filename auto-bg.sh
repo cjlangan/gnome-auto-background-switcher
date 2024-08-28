@@ -8,10 +8,11 @@ search=$(echo "$user_input" | sed 's/ /%20/g')
 read -p "How often should your background cycle (in seconds)? " user_input
 cycle_time="$user_input"
 
+file="background"
+
 # Setting up directories for files.
-dir="/home/$USER/Pictures/auto-backgrounds/"
-mkdir -p "$dir" && mkdir -p "$dir".config
-rm -f "$dir"*
+dir="/home/$USER/.auto-bg-switcher/"
+mkdir -p "$dir"
 echo "Created Proper folders. See at ${dir}"
 
 # Retrieve HTML data from Yandex Search
@@ -26,14 +27,9 @@ else
 fi
 
 # Extract all image URL's to a single text file
-grep -Eo "(http|https)://[a-zA-Z0-9./?=_-]*\.(jpg|jpeg|png)" ${dir}site.html | sort -u > ${dir}.config/urls.txt
+grep -Eo "(http|https)://[a-zA-Z0-9./?=_-]*\.(jpg|jpeg|png)" ${dir}site.html | sort -u > ${dir}urls.txt
 echo "Extracted image URL's from HTML package."
     
-# Clear the directory as to not build up a ton of images
-rm -f "$dir"*
-
-# Set the download file name
-file="background"
 bg_set=false
 
 # Loop to change background photo intermittently
@@ -43,7 +39,7 @@ do
     while true
     do
         # Randomise which URL to choose from
-        bg_url=$(shuf -n 1 "$dir".config/urls.txt)
+        bg_url=$(shuf -n 1 "$dir"urls.txt)
 
         # Attempt to download the URL
         if wget -L -q -O "$dir"temp $bg_url; then
@@ -53,8 +49,8 @@ do
         else
             # if fail, remove that URL from the list and try again
             echo "Failed to download image from $bg_url. Trying another URL and removing failed one."
-            line_number=$(grep -nF "$bg_url" "$dir.config/urls.txt" | cut -d: -f1)
-            sed -i "${line_number}d" "$dir.config/urls.txt"
+            line_number=$(grep -nF "$bg_url" "${dir}urls.txt" | cut -d: -f1)
+            sed -i "${line_number}d" "${dir}urls.txt"
         fi
     done
 
