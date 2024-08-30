@@ -28,6 +28,9 @@ fi
 
 # Extract all image URL's to a single text file
 grep -Eo "(http|https)://[a-zA-Z0-9./?=_-]*\.(jpg|jpeg|png)" ${dir}site.html | sort -u > ${dir}urls.txt
+
+# Remove yastatic image, it is the last one, it is irrelevant
+sed -i '$d' "${dir}urls.txt"
 echo "Extracted image URL's from HTML package."
     
 bg_set=false
