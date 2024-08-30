@@ -16,7 +16,7 @@ mkdir -p "$dir"
 echo "Created Proper folders. See at ${dir}"
 
 # Retrieve HTML data from Yandex Search
-curl -s "https://yandex.com/images/search?text=${search}%20wallpaper&iorient=horizontal&isize=large" -o "${dir}site.html"
+curl -s "https://yandex.com/images/search?text=${search}&isize=wallpaper&wp=wh16x9_1920x1080" -o "${dir}site.html"
 
 # Check if we successfully retrieved the HTML data
 if [ -z "$(sed -n '2p' ${dir}site.html)" ]; then
