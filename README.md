@@ -13,12 +13,24 @@
 
 **Solution:** Either wait, or connect to a VPN then run the script
 
-## Use
-Simply download the `auto-bg.sh` file and run:
+## Installation
+
+1. Download this repo, or clone it:
+
 ```bash
-sudo chmod +x auto-bg.sh
-./auto-bg.sh
+git clone https://github.com/cjlangan/gnome-auto-background-switcher.git
 ```
+
+2. Navigate into the downloaded directory and run the installer script
+
+
+```bash
+cd gnome-auto-background-switcher
+chmod +x install.sh
+./install.sh
+```
+
+3. Run the program with `autobg`
 
 You will be prompted for the type of photos you want.
 Then you will be asked how often you want your background to switch.
