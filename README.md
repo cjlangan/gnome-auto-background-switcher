@@ -36,6 +36,17 @@ You will be prompted for the type of photos you want.
 Then you will be asked how often you want your background to switch.
 That's it!
 
+## Uninstallation
+
+Navigate to the project directory and run:
+
+```bash
+chmod +x uninstall.sh
+./uninstall.sh
+```
+
+Then feel free to remove the entire project directory
+
 ### How it Works
 - Retrieves HTML data from a Yandex image search
 - Creates a directory at ~/.auto-bg-switcher/
