@@ -6,7 +6,8 @@
 - curl
 - wget
 - shuf
-- gsettings, should have if you are using gnome.
+- gsettings, if using GNOME: should have if you are using gnome.
+- swaybg: if using Sway or Hyprland
 
 ## DISCLAIMER
 - if the script fails, it is likely because you have ran it too much in a short period of time
@@ -21,31 +22,23 @@
 git clone https://github.com/cjlangan/gnome-auto-background-switcher.git
 ```
 
-2. Navigate into the downloaded directory and run the installer script
+2. Navigate into the downloaded directory and add the script
 
 
 ```bash
 cd gnome-auto-background-switcher
-chmod +x install.sh
-./install.sh
+chmod +x autobg.sh
+sudo cp autobg.sh /usr/local/bin/ 
+source ~/.bashrc  # or .zshrc
 ```
+
+Feel free to now remove the project directory 
 
 3. Run the program with `autobg`
 
 You will be prompted for the type of photos you want.
 Then you will be asked how often you want your background to switch.
 That's it!
-
-## Uninstallation
-
-Navigate to the project directory and run:
-
-```bash
-chmod +x uninstall.sh
-./uninstall.sh
-```
-
-Then feel free to remove the entire project directory
 
 ### How it Works
 - Retrieves HTML data from a Yandex image search
